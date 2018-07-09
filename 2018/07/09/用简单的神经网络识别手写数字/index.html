@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="WuLei&#39;s Blog">
 <meta property="og:description" content="概述  为了更好的了解深度学习的原理，拜读了Michael Nielsen的“Neural Networks and Deep Learning”的文章，实现第一章的随机梯度下降例子。 实现神经网络分类数字下载MNIST和Numpy MNIST首先获取MNIST数据，可以通过git clone ttps://github.com/mnielsen/neural-networks-and-deep-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-09T09:42:01.422Z">
+<meta property="og:updated_time" content="2018-07-09T09:46:06.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用简单的神经网络识别手写数字">
 <meta name="twitter:description" content="概述  为了更好的了解深度学习的原理，拜读了Michael Nielsen的“Neural Networks and Deep Learning”的文章，实现第一章的随机梯度下降例子。 实现神经网络分类数字下载MNIST和Numpy MNIST首先获取MNIST数据，可以通过git clone ttps://github.com/mnielsen/neural-networks-and-deep-">
@@ -355,9 +355,9 @@
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>  为了更好的了解深度学习的原理，拜读了Michael Nielsen的“Neural Networks and Deep Learning”的文章，实现第一章的随机梯度下降例子。</p>
 <h1 id="实现神经网络分类数字"><a href="#实现神经网络分类数字" class="headerlink" title="实现神经网络分类数字"></a>实现神经网络分类数字</h1><h2 id="下载MNIST和Numpy"><a href="#下载MNIST和Numpy" class="headerlink" title="下载MNIST和Numpy"></a>下载MNIST和Numpy</h2><ol>
 <li>MNIST<br>首先获取MNIST数据，可以通过<code>git clone ttps://github.com/mnielsen/neural-networks-and-deep-learning.git</code>获取。如果不用git，也可以从<a href="https://github.com/mnielsen/neural-networks-and-deep-learning/archive/master.zip" target="_blank" rel="noopener">这里</a>下载数据和代码。<a id="more"></a></li>
-<li>Numpy<br>需要一个叫做<code>Numpy</code>的Python库，用来做快速的线性代数。可安装<code>Spyder</code>解决。<h2 id="核心的Network类"><a href="#核心的Network类" class="headerlink" title="核心的Network类"></a>核心的Network类</h2>神经网络代码的核心特性是一个Network类。初始化一个Network对象的代码如下：<br><code>`</code><br>class Network(object):<br>def <strong>init</strong>(self, sizes):<br> self.num_layers=len(sizes)<br> self.sizes=sizes<br> self.biases=[np.random.randn(y,1) for y in sizes[1:]]<br> self.weights=[np.random.randn(y,x)<pre><code>for x,y in zip(sizes[:-1], sizes[1:])]
-</code></pre></li>
+<li>Numpy<br>需要一个叫做<code>Numpy</code>的Python库，用来做快速的线性代数。可安装<code>Spyder</code>解决。<h2 id="核心的Network类"><a href="#核心的Network类" class="headerlink" title="核心的Network类"></a>核心的Network类</h2>神经网络代码的核心特性是一个Network类。初始化一个Network对象的代码如下：</li>
 </ol>
+<figure class="highlight plain"><figcaption><span>Network(object):</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def __init__(self, sizes):</span><br><span class="line">  self.num_layers=len(sizes)</span><br><span class="line">  self.sizes=sizes</span><br><span class="line">  self.biases=[np.random.randn(y,1) for y in sizes[1:]]</span><br><span class="line">  self.weights=[np.random.randn(y,x)</span><br><span class="line">            for x,y in zip(sizes[:-1], sizes[1:])]</span><br></pre></td></tr></table></figure>
 
       
     </div>
