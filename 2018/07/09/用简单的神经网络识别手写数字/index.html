@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="WuLei&#39;s Blog">
 <meta property="og:description" content="概述  为了更好的了解深度学习的原理，拜读了Michael Nielsen的“Neural Networks and Deep Learning”的文章，实现第一章的随机梯度下降例子。 实现神经网络分类数字下载MNIST和Numpy MNIST首先获取MNIST数据，可以通过git clone ttps://github.com/mnielsen/neural-networks-and-deep-">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-09T09:46:06.003Z">
+<meta property="og:updated_time" content="2018-07-10T01:01:13.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用简单的神经网络识别手写数字">
 <meta name="twitter:description" content="概述  为了更好的了解深度学习的原理，拜读了Michael Nielsen的“Neural Networks and Deep Learning”的文章，实现第一章的随机梯度下降例子。 实现神经网络分类数字下载MNIST和Numpy MNIST首先获取MNIST数据，可以通过git clone ttps://github.com/mnielsen/neural-networks-and-deep-">
@@ -357,7 +357,8 @@
 <li>MNIST<br>首先获取MNIST数据，可以通过<code>git clone ttps://github.com/mnielsen/neural-networks-and-deep-learning.git</code>获取。如果不用git，也可以从<a href="https://github.com/mnielsen/neural-networks-and-deep-learning/archive/master.zip" target="_blank" rel="noopener">这里</a>下载数据和代码。<a id="more"></a></li>
 <li>Numpy<br>需要一个叫做<code>Numpy</code>的Python库，用来做快速的线性代数。可安装<code>Spyder</code>解决。<h2 id="核心的Network类"><a href="#核心的Network类" class="headerlink" title="核心的Network类"></a>核心的Network类</h2>神经网络代码的核心特性是一个Network类。初始化一个Network对象的代码如下：</li>
 </ol>
-<figure class="highlight plain"><figcaption><span>Network(object):</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def __init__(self, sizes):</span><br><span class="line">  self.num_layers=len(sizes)</span><br><span class="line">  self.sizes=sizes</span><br><span class="line">  self.biases=[np.random.randn(y,1) for y in sizes[1:]]</span><br><span class="line">  self.weights=[np.random.randn(y,x)</span><br><span class="line">            for x,y in zip(sizes[:-1], sizes[1:])]</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Network</span>(<span class="title">object</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>, sizes)</span></span><span class="symbol">:</span></span><br><span class="line">    <span class="keyword">self</span>.num_layers=len(sizes)</span><br><span class="line">    <span class="keyword">self</span>.sizes=sizes</span><br><span class="line">    <span class="keyword">self</span>.biases=[np.random.randn(y,<span class="number">1</span>) <span class="keyword">for</span> y <span class="keyword">in</span> sizes[<span class="number">1</span><span class="symbol">:</span>]]</span><br><span class="line">    <span class="keyword">self</span>.weights=[np.random.randn(y,x)</span><br><span class="line">              <span class="keyword">for</span> x,y <span class="keyword">in</span> zip(sizes[<span class="symbol">:-</span><span class="number">1</span>], sizes[<span class="number">1</span><span class="symbol">:</span>])]</span><br></pre></td></tr></table></figure>
+<p>  这段代码中，列表<code>sizes</code>为各层神经元的数量。例如<code>net=Network([2,3,1])</code>是指：第一层有2个神经元、第二层有3个神经元、第三层（最后一层）有1个神经元的Network对象。</p>
 
       
     </div>
@@ -397,6 +398,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/10/Mindsphere和Predix的异同/" rel="prev" title="Mindsphere和Predix的异同">
+                Mindsphere和Predix的异同 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -477,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
